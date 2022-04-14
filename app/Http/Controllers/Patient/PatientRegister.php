@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Patient;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Patient;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class PatientRegister extends Controller
 {
@@ -21,7 +22,7 @@ class PatientRegister extends Controller
     Patient::create([
         'name'      =>$request ->name,
         'email'     =>$request ->email,
-        'password'  =>$request ->password
+        'password'  =>Hash::make($request ->password)
     ]);
     return back() -> with('success','Patient account successfuly!');
      /**

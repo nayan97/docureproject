@@ -20,13 +20,13 @@
 										<div class="login-header">
 											<h3>Patient Register <a href="{{url('doctor/register')}}">Are you a Doctor?</a></h3>
 										</div>
-										@if($errors -> any)
-										<p class="alert alert-danger">{{ $errors -> first()}} <button data-dismiss="alert" class="close">&times;</button></p>
-										@endif
+
+										
+									@include('validate')
 										
 										
 										<!-- Register Form -->
-										<form action="" method="POST">
+										<form action="{{url('patient/register')}}" method="POST">
 											@csrf
 											<div class="form-group form-focus">
 												<input name="name" type="text" class="form-control floating">
