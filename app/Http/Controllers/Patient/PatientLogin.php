@@ -23,5 +23,18 @@ class PatientLogin extends Controller
     }else{
         return back() -> with('danger', 'Worong Email or Password');
     }
-}
+    }
+
+    public function logout()
+    {
+      
+        Auth::guard('patient') -> logout();
+
+        
+            return redirect('/login');
+        
+    }
+
+
+
 }
