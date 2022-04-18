@@ -82,7 +82,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="index-2.html">
+												<a href="{{url('patient/logout')}}">
 													<i class="fas fa-sign-out-alt"></i>
 													<span>Logout</span>
 												</a>
