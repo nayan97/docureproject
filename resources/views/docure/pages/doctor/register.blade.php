@@ -21,17 +21,20 @@
 										</div>
 										
 										<!-- Register Form -->
-										<form action="https://dreamguys.co.in/demo/doccure/doctor-dashboard.html">
+										<form action="{{url('doctor/register')}}" method="POST">
+											@csrf
+
+											@include('validate')
 											<div class="form-group form-focus">
-												<input type="text" class="form-control floating">
+												<input name="name" type="text" class="form-control floating">
 												<label class="focus-label">Name</label>
 											</div>
 											<div class="form-group form-focus">
-												<input type="text" class="form-control floating">
-												<label class="focus-label">Mobile Number</label>
+												<input name="email" type="text" class="form-control floating">
+												<label class="focus-label">Email</label>
 											</div>
 											<div class="form-group form-focus">
-												<input type="password" class="form-control floating">
+												<input name="password" type="password" class="form-control floating">
 												<label class="focus-label">Create Password</label>
 											</div>
 											<div class="text-right">
