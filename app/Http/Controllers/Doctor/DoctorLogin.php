@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers\Doctor;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DoctorLogin extends Controller
 {
-    public function login(Request $request)
+    public function logout()
     {
-        return $request -> all();
+      
+        Auth::guard('doctor') -> logout();
+
+        
+            return redirect('/login');
+        
     }
 }

@@ -22,9 +22,10 @@ Route:: get('patient/logout', [ PatientLogin::class, 'logout']);
 /**
  * Doctor Routs
  */
-Route:: get('doctor/register', [ DocureFrontendController::class, 'showDoctorRegPage']);
-Route:: get('doctor/dashboard', [ DocureFrontendController::class, 'showDoctorDashboard']);
+Route:: get('doctor/register', [ DocureFrontendController::class, 'showDoctorRegPage']) -> middleware('doctor.redirect');
+Route:: get('doctor/dashboard', [ DocureFrontendController::class, 'showDoctorDashboard']) -> middleware('doctor');
 Route:: post('doctor/register', [ DoctorRegister::class, 'register']);
 Route:: post('doctor/login', [ DoctorLogin::class, 'login']);
+Route:: get('doctor/logout', [ DoctorLogin::class, 'logout']);
 
 

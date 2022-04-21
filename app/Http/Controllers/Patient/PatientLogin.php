@@ -20,7 +20,13 @@ class PatientLogin extends Controller
     if(Auth::guard('patient') -> attempt(['email' => $request ->email, 'password' => $request ->password]
     )){
      return redirect('/patient/dashboard');  
-    }else{
+    }else  if(Auth::guard('doctor') -> attempt(['email' => $request ->email, 'password' => $request ->password]
+    )){
+     return redirect('/doctor/dashboard');  
+    
+    
+    }else  
+    {
         return back() -> with('danger', 'Worong Email or Password');
     }
     }
