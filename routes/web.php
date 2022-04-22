@@ -8,11 +8,11 @@ use App\Http\Controllers\Patient\PatientRegister;
 use App\Http\Controllers\DocureFrontendController;
 
 Route:: get('/', [ DocureFrontendController::class, 'showHomePage']);
-Route:: get('login', [ DocureFrontendController::class, 'showLoginPage']);
+Route:: get('login', [ DocureFrontendController::class, 'showLoginPage']) -> middleware(['patient.redirect','doctor.redirect']);
 
 
  
-Route:: get('patient/register', [ DocureFrontendController::class, 'showPatientRegPage']) -> middleware('patient.redirect');
+Route:: get('patient/register', [ DocureFrontendController::class, 'showPatientRegPage']) -> middleware(['patient.redirect','doctor.redirect']);
 Route:: get('patient/dashboard', [ DocureFrontendController::class, 'showPatientDashboard']) -> middleware('patient');
 Route:: post('patient/register', [ PatientRegister::class, 'register']);
 Route:: post('patient/login', [ PatientLogin::class, 'login']);

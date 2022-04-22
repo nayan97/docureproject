@@ -4,6 +4,7 @@ namespace App\Http\Middleware\Doctor;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DoctorRedirectMiddleware
 {
@@ -16,6 +17,11 @@ class DoctorRedirectMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        
+        if(Auth::guard('doctor') -> check()){
+            return redirect('/doctor/dashboard');
+
+        }
         return $next($request);
     }
 }

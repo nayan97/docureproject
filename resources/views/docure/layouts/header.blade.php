@@ -25,8 +25,10 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link header-login" href="{{ url('login')}}">login / Signup </a>
+							<a class="nav-link header-login" href="{{ url('login')}}">@yield('login-button','login / Signup')</a>
 						</li>
+						
+					
 					</ul>
 				</nav>
 			</header>

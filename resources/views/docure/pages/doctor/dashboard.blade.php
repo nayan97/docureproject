@@ -1,5 +1,5 @@
 @extends('docure.layouts.app')
-
+@section('login-button','')
 
 @section('main-content')
 
